@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Buty(models.Model):
     Nazwa = models.CharField(max_length=255)
+    Marka = models.TextField(default='Nike')
     Wyglad = models.ImageField(upload_to='static')
     opis = models.TextField()
 
@@ -16,6 +17,9 @@ class Buty(models.Model):
         duze1 = 42 
         duze2 = 43
     wybor = models.IntegerField(choices=Rozmiar.choices,default=Rozmiar.srednie1)
+
+    def __str__(self):
+        return self.Nazwa
 
     
 
