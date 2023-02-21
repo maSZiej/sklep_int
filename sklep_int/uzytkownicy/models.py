@@ -26,3 +26,6 @@ class Buty(models.Model):
 class Ocena(models.Model):
     przedmiot = models.ForeignKey(Buty, on_delete=models.CASCADE)
     komentarz=models.TextField()
+
+    def __str__(self):
+        return ''    
