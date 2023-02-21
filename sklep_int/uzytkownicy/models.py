@@ -10,13 +10,13 @@ class Buty(models.Model):
     opis = models.TextField()
 
     class Rozmiar(models.IntegerChoices):
-        male1 = 38
-        male2 = 39
-        srednie1 = 40 
-        srednie2 = 41
-        duze1 = 42 
-        duze2 = 43
-    wybor = models.IntegerField(choices=Rozmiar.choices,default=Rozmiar.srednie1)
+        male_38 = 38
+        male_39 = 39
+        srednie_40 = 40 
+        srednie_41 = 41
+        duze_42 = 42 
+        duze_43 = 43
+    rozmiar = models.IntegerField(choices=Rozmiar.choices,default=Rozmiar.srednie_40)
 
     def __str__(self):
         return self.Nazwa
