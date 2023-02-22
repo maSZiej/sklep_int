@@ -23,3 +23,5 @@ class ButyAdmin(admin.ModelAdmin):
 class OcenaAdmin(admin.ModelAdmin):
     list_display=['przedmiot','komentarz']
 
+    def __str__(self):
+        return ''

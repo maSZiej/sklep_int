@@ -7,8 +7,8 @@ class ButySerializer(serializers.HyperlinkedModelSerializer):
         model = Buty
         fields = ['Nazwa','Marka','Wyglad','opis']
 
-class OcenaSerializer(serializers.HyperlinkedModelSerializer):
+#class OcenaSerializer(serializers.HyperlinkedModelSerializer):
     
-    class Meta:
-        model = Ocena
-        fields = ['przedmiot','komentarz']
+  #  class Meta:
+   #     model = Ocena
+    #    fields = ['przedmiot','komentarz']

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -26,6 +27,7 @@ class Buty(models.Model):
 class Ocena(models.Model):
     przedmiot = models.ForeignKey(Buty, on_delete=models.CASCADE)
     komentarz=models.TextField()
+#    data = models.SlugField(max_length=250,unique_for_date='opublikowano')
 
     def __str__(self):
         return ''    
