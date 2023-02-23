@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.utils.html import mark_safe
 
 
 # Create your models here.
@@ -22,7 +23,10 @@ class Buty(models.Model):
     def __str__(self):
         return self.Nazwa
 
-    
+    def wyglad(self): #new
+        return mark_safe(f'<img src = "{self.Wyglad.url}" width = "200" height="200" />')
+        
+
 
 class Ocena(models.Model):
     przedmiot = models.ForeignKey(Buty, on_delete=models.CASCADE)
