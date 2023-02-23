@@ -7,8 +7,12 @@ from .serializer import ButySerializer
 
 
 def index(request):
-    return render(request,"index.html")
+    but = Buty.objects.all()
+    return render(request,"index.html",{'but':but})
 
+
+
+#REST API
 
 class ButyViewSet(viewsets.ModelViewSet):
     queryset = Buty.objects.all()

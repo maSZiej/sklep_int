@@ -9,7 +9,7 @@ class oclin(admin.TabularInline):
 # Register your models here.
 @admin.register(Buty)
 class ButyAdmin(admin.ModelAdmin):
-    list_display=['Nazwa','opis','obr']
+    list_display=['Nazwa','opis','wyglad']
     list_filter=['Marka']
     search_fields=['Nazwa']
     inlines = [
@@ -17,7 +17,8 @@ class ButyAdmin(admin.ModelAdmin):
     ]
 
     def obr(self,obj):
-        return format_html(f'<image src={obj}>')
+        return format_html(f'<image hight=10px width=10px src={obj}>')    
+
 
 @admin.register(Ocena)
 class OcenaAdmin(admin.ModelAdmin):

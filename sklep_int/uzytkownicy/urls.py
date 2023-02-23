@@ -10,4 +10,5 @@ router.register(r'Buty',ButyViewSet)
 
 urlpatterns= [ 
     path('api/',include(router.urls)),
+    #REST API
     path('api-aut/', include('rest_framework.urls', namespace='rest_framework'))]
