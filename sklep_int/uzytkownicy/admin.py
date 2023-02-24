@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Buty,Ocena
+from .models import Buty,Ocena,Marki
 
 
 class oclin(admin.TabularInline):
@@ -26,3 +26,7 @@ class OcenaAdmin(admin.ModelAdmin):
 
     def __str__(self):
         return ''
+    
+@admin.register(Marki)
+class MarkiAdmin(admin.ModelAdmin):
+    list_display=['nazwa','Logo']

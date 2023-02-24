@@ -24,7 +24,7 @@ class Buty(models.Model):
         return self.Nazwa
 
     def wyglad(self): #new
-        return mark_safe(f'<img src = "{self.Wyglad.url}" width = "200" height="200" />')
+        return mark_safe(f'<img src = "{self.Wyglad.url}" width = "20" height="20" />')
         
 
 
@@ -35,3 +35,11 @@ class Ocena(models.Model):
 
     def __str__(self):
         return ''    
+    
+
+class Marki(models.Model):
+    nazwa = models.CharField(max_length=255)
+    logo = models.ImageField(upload_to='static')
+
+    def Logo(self): #new
+        return mark_safe(f'<img src = "{self.logo.url}" width = "20" height="20" />')

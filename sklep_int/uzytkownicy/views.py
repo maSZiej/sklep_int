@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Buty,Ocena
+from .models import Buty,Ocena,Marki
 from rest_framework import viewsets
 from .serializer import ButySerializer
 
@@ -8,7 +8,8 @@ from .serializer import ButySerializer
 
 def index(request):
     but = Buty.objects.all()
-    return render(request,"index.html",{'but':but})
+    marka = Marki.objects.all() 
+    return render(request,"index.html",{'but':but,'marka':marka})
 
 
 
