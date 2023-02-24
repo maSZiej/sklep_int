@@ -4,6 +4,10 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static "style.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     
      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -11,7 +15,7 @@
 <body>
     <div >
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Internetowy sklep obuwniczy</a>
+            <a class="navbar-brand" href="#">Shoezman</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,32 +39,65 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                   </div>
                 </li>
-           <!--   <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>-->  
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Przedmiot" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Wyszukaj</button>
-              </form>
+              <a href=""><button id="butonizer" class="btn btn-outline-success my-2 my-sm-0" title='Zaloguj'>Zarejestruj</button></a>
+              <a href=""><button id="butonizer" class="btn btn-outline-success my-2 my-sm-0" title='Zaloguj'>Zaloguj</button></a>
             </div>
           </nav>
     </div>
-    <div id="sidebar">
+
+  <div id="sidebar">
       <p>Nasze marki</p>
       {% for marki in marka %}
+      <figure>
         <a href='#' ><img class='favorite'  src= '{{ marki.logo }}' alt="Buty"> </a>
-        <p>{{marki.nazwa}} </p>
+        <figcaption>{{marki.nazwa}} </figcaption>
+      </figure>
       {% endfor %}
     </div>
-   <div class="corousel">
-    {% for buts in but %}
-       <img class='favorite'  src=  '{{ buts.Wyglad }}' alt="Buty"> 
-       <p>{{buts.cena}} </p>
-    {% endfor %}
- </div>
+    <div class ="wrapper">
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <h2>Polecane</h2>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+  </ol>
 
-
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+      {% for p in but %}
+      {% if forloop.counter == 1 %}
+      <div class="item active">
+      {% else %}
+      <div class="item">
+      {% endif %}
+      <div class="d-flex justify-content-center">
+          <img class='favorite' src="{{ p.Wyglad }}" alt="Image" >
+      </div>
+    <div class="carousel-caption">
+      <h3 class="cc">{{ p.Nazwa }}</h3>
+      <p class ="cc">{{ p.cena }}</p>
+    </div>
+      </div>
+      {% endfor %}
+      </div>
+  
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Poprzedni</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Następny</span>
+      </a>
+  </div>
+</div>
 
 </body>
 </html>
