@@ -9,7 +9,7 @@ class oclin(admin.TabularInline):
 # Register your models here.
 @admin.register(Buty)
 class ButyAdmin(admin.ModelAdmin):
-    list_display=['Nazwa','opis','wyglad']
+    list_display=['Nazwa','opis','cena','wyglad']
     list_filter=['Marka']
     search_fields=['Nazwa']
     inlines = [

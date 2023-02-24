@@ -49,14 +49,14 @@
     <div id="sidebar">
       <p>Nasze marki</p>
       {% for marki in marka %}
-        <img class='favorite'  src=  '{{ marki.logo }}' alt="Buty"> 
+        <a href='#' ><img class='favorite'  src= '{{ marki.logo }}' alt="Buty"> </a>
         <p>{{marki.nazwa}} </p>
       {% endfor %}
     </div>
    <div class="corousel">
     {% for buts in but %}
        <img class='favorite'  src=  '{{ buts.Wyglad }}' alt="Buty"> 
-       <p>{{buts.Nazwa}} </p>
+       <p>{{buts.cena}} </p>
     {% endfor %}
  </div>
 

@@ -10,6 +10,7 @@ class Buty(models.Model):
     Marka = models.TextField(default='Nike')
     Wyglad = models.ImageField(upload_to='static')
     opis = models.TextField()
+    cena = models.FloatField(default=299.99)
 
     class Rozmiar(models.IntegerChoices):
         male_38 = 38
